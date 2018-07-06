@@ -1,0 +1,509 @@
+@charset "UTF-8";
+/*SCSS*/
+/*Переменные*/
+/*максимальная ширина враппера*/
+/*Шаблонные селекторы*/
+#top > .wr, #top > .wr header, #top > .wr header nav ul, #snippets > .wr, #snippets > .wr > ul, #portfolio > .wr, #team > .wr > .row2, #team > .wr > .row2 li, footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#top > .wr header nav ul, #snippets > .wr > ul, #team > .wr > .row2 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#top > .wr, #snippets > .wr, #portfolio > .wr, #team > .wr, footer {
+  align-items: center;
+  height: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+/*Миксин для добавления префиксов*/
+/************************************************/
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.more {
+  color: #fa5c65;
+  display: block;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.more:after {
+  content: ' +';
+}
+
+.dot {
+  color: #fa5c65;
+}
+
+#top {
+  position: relative;
+  background: url("../img/top.jpg") no-repeat center 0;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top {
+    background: url("../img/top.jpg") no-repeat 0 center;
+  }
+}
+#top > .wr {
+  /*& обозначает родительский селектор, т.е. section#top > .wr*/
+  /*интеграция шаблонного селектора*/
+}
+#top > .wr header {
+  flex-basis: 100%;
+  justify-content: space-between;
+  align-self: flex-start;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr header {
+    display: flex;
+    justify-content: center;
+  }
+}
+#top > .wr header .logo {
+  width: 140px;
+  height: 74px;
+  display: block;
+  background: url("../img/logo.png") no-repeat;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr header .logo {
+    display: none;
+  }
+}
+#top > .wr header nav ul {
+  margin-top: 25px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr header nav ul {
+    justify-content: center;
+    flex-wrap: no-wrap;
+  }
+}
+#top > .wr header nav ul li {
+  margin-left: 30px;
+}
+#top > .wr header nav ul li a {
+  color: #656f76;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-right: 20px;
+}
+#top > .wr header nav ul li a:hover {
+  color: #fa5c65;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr header nav ul li a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px 20px !important;
+  }
+}
+#top > .wr header nav ul li.social a {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-left: 10px;
+  -webkit-filter: grayscale(0);
+  -o-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#top > .wr header nav ul li.social a:hover {
+  -webkit-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+#top > .wr header nav ul li.social a.tw {
+  background: url("../img/tw.png") no-repeat;
+}
+#top > .wr header nav ul li.social a.fb {
+  background: url("../img/fb.png") no-repeat;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr header nav ul li.social a {
+    display: none;
+  }
+}
+#top > .wr .sloganCont {
+  max-width: 58%;
+  padding: 0 30px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr .sloganCont {
+    max-width: 100%;
+    text-align: center;
+    padding-bottom: 150px;
+  }
+}
+#top > .wr .sloganCont h1 {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #314a5b;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr .sloganCont h1 {
+    font-size: 2em;
+  }
+}
+#top > .wr .sloganCont h4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr .sloganCont h4 {
+    font-size: 1.5em;
+    padding: 20px 0;
+  }
+}
+#top > .wr .sloganCont .btn {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding: 25px 35px;
+  background: #fa5c65;
+  margin-top: 50px;
+  transition: all 0.2s ease;
+}
+#top > .wr .sloganCont .btn:hover {
+  background: #656f76;
+  color: white;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #top > .wr .sloganCont .btn {
+    font-size: 1.5em;
+  }
+}
+
+#snippets {
+  position: relative;
+}
+#snippets > .wr {
+  justify-content: center;
+  /*интеграция шаблонного селектора*/
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #snippets > .wr > ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#snippets > .wr > ul li {
+  width: 33.3333333333%;
+  box-sizing: border-box;
+  padding: 70px 25px;
+  text-align: left;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #snippets > .wr > ul li {
+    width: 96%;
+    padding: 30px 25px;
+    text-align: center;
+  }
+}
+#snippets > .wr > ul li h3 {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #314a5b;
+}
+#snippets > .wr > ul li h3 .dot {
+  color: #fa5c65;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #snippets > .wr > ul li h3 {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+#snippets > .wr > ul li .descr {
+  color: #b8bcc4;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding: 25px 35px 25px 0;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #snippets > .wr > ul li .descr {
+    padding: 20px 0;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #snippets > .wr > ul li .more {
+    text-align: center;
+    font-size: 1.5em;
+    paddimg: 0 30px;
+  }
+}
+
+#portfolio > .wr {
+  justify-content: space-between;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr {
+    flex-direction: column;
+  }
+}
+#portfolio > .wr > .col {
+  width: 49%;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr > .col {
+    width: 100%;
+  }
+}
+#portfolio > .wr > .col:first-of-type img {
+  width: 100%;
+}
+#portfolio > .wr h2 {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #314a5b;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr h2 {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr h4 {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 1.5em;
+  }
+}
+#portfolio > .wr .descr {
+  color: #b8bcc4;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  padding: 20px 0 30px 0;
+}
+#portfolio > .wr .descr p:first-child {
+  padding-bottom: 15px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr .descr {
+    text-align: left;
+    width: 100%;
+    font-size: 1.5em;
+    padding: 20px 5% 20px 10%;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #portfolio > .wr .more {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5em;
+  }
+}
+
+#team > .wr > .row1 h2 {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #314a5b;
+  margin: 0;
+  padding-left: 15px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row1 h2 {
+    text-align: center;
+    width: 100%;
+    paddingtop: 20px;
+    font-size: 2.5em;
+  }
+}
+#team > .wr > .row1 h3 {
+  color: #b8bcc4;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding: 0;
+  padding-left: 15px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row1 h3 {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5em;
+  }
+}
+#team > .wr > .row2 {
+  margin-top: 30px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row2 {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+#team > .wr > .row2 li {
+  width: 33.3333333333%;
+  padding-right: 35px;
+  box-sizing: border-box;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row2 li {
+    width: 100%;
+    margin: 20px auto;
+  }
+}
+@media (min-width: 452px) and (max-width: 1200px) {
+  #team > .wr > .row2 li {
+    width: 70%;
+    margin: 20px auto;
+    padding-left: 0%;
+  }
+}
+#team > .wr > .row2 li .col1 {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: no-repeat center;
+  background-size: cover;
+}
+#team > .wr > .row2 li .col1.photo1 {
+  background-image: url(../img/photo1.jpg);
+}
+#team > .wr > .row2 li .col1.photo2 {
+  background-image: url(../img/photo2.jpg);
+}
+#team > .wr > .row2 li .col1.photo3 {
+  background-image: url(../img/photo3.jpg);
+}
+#team > .wr > .row2 li .col2 {
+  width: calc(100% - 128px);
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+#team > .wr > .row2 li .col2 h3 {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #314a5b;
+  margin: 0;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row2 li .col2 h3 {
+    font-size: 2em;
+  }
+}
+#team > .wr > .row2 li .col2 h4 {
+  color: #fa5c65;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row2 li .col2 h4 {
+    font-size: 1.5em;
+  }
+}
+#team > .wr > .row2 li .col2 .descr {
+  color: #b8bcc4;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding: 0;
+}
+#team > .wr > .row3 {
+  text-align: right;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  #team > .wr > .row3 {
+    display: none;
+  }
+}
+
+footer {
+  display: flex !important;
+  justify-content: space-between;
+  margin-top: 80px;
+  padding-top: 20px;
+  min-height: 90px;
+  border-top: 2px solid #e6eaed;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  footer {
+    flex-direction: column;
+  }
+}
+footer .col1 a {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin-right: 20px;
+  background: url(../img/soc-foot.png) no-repeat 0 center;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+footer .col1 a.tw {
+  background-position-x: 0;
+}
+footer .col1 a.ins {
+  background-position-x: 36%;
+}
+footer .col1 a.fb {
+  background-position-x: 72%;
+}
+footer .col1 a.gp {
+  background-position-x: 100%;
+}
+footer .col1 a:hover {
+  opacity: 1;
+}
+footer .col2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #e6eaed;
+}
+
+/*# sourceMappingURL=style.css.map */

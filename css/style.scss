@@ -1,0 +1,607 @@
+@charset "UTF-8";
+
+/*SCSS*/
+/*Переменные*/
+$maxWrap: 940px; /*максимальная ширина враппера*/
+
+$Montserrat: 'Montserrat', sans-serif;
+$OpenSans: 'Open Sans', sans-serif;
+
+$navCol: #656f76;
+$navColHover: #fa5c65;
+
+$dotColor: #fa5c65;
+$moreColor: #fa5c65;
+$profColor: #fa5c65;
+$btnBackColor: #fa5c65;
+$btnHovColor: #656f76;
+
+$sloganColor: #314a5b;
+$desrcColor: #b8bcc4;
+
+$footerLine: #e6eaed;
+
+$prefixes: "-webkit-", "-o-", "-moz-", "-ms-";
+
+$min-mob: 320px;
+$max-mob: 768px;
+$min-tab:	452px;
+$max-tab:	1200px;
+$min-desk:	1200px;
+
+/*Шаблонные селекторы*/
+%flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+%ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+%wr {	
+		align-items: center;	
+		height: 100%;	    
+		max-width: $maxWrap;
+		margin: 0 auto;		
+}
+
+%mob-centr {
+	text-align: center;
+	fant-size: 2em;
+	margin: 20px;
+}
+
+/*Миксин для добавления префиксов*/
+	@mixin addPrefix ($item, $value) {
+		
+		@each $elem in $prefixes {
+		#{$elem}#{$item}:$value;
+		}
+
+		#{$item}:$value;
+
+	}
+
+/************************************************/
+
+body {    
+    padding:0;
+    margin:0;
+	height: 100%;
+	min-height: 100%;
+}
+
+body a {
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+body a:hover {
+	text-decoration: none;
+}
+
+section {
+	margin-bottom: 50px;
+}
+
+.more {
+	color: $moreColor;
+	display: block;
+	text-transform: uppercase;
+	font-family: $Montserrat;
+	font-size: 15px;
+	font-weight: 700;
+	
+	&:after {
+		content: ' +';					
+	}
+}
+
+.dot {
+	color: $dotColor;
+}
+
+#top {		
+	position: relative;
+	background: url('../img/top.jpg') no-repeat center 0;
+	background-size: cover; 
+	background-attachment: fixed;
+	height: 100vh;	
+	
+	@media (min-width: $min-mob) and (max-width: $max-mob) {
+						background: url('../img/top.jpg') no-repeat 0 center;
+					}
+	
+
+	& > .wr { /*& обозначает родительский селектор, т.е. section#top > .wr*/
+		@extend %flex, %wr; /*интеграция шаблонного селектора*/	
+		
+
+		header {
+			@extend %flex;
+			flex-basis: 100%;
+			justify-content: space-between;
+			align-self: flex-start;	
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+					display: flex;
+					justify-content: center;				
+				}
+			
+			
+			.logo {
+				width: 140px;
+				height: 74px;
+				display: block;
+				background: url("../img/logo.png") no-repeat;
+				
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					display: none;	
+				}
+			}		
+			
+			nav {
+				ul {
+					@extend %ul, %flex; 
+					margin-top: 25px;
+					
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {		
+								justify-content: center;
+								flex-wrap: no-wrap;
+					}
+					
+					li {
+						margin-left: 30px;
+						
+						a {
+							color: $navCol;
+							font-family: $Montserrat;
+							font-size: 14px;
+							font-weight: 800;
+							text-transform: uppercase;
+							padding-right: 20px;
+												
+							&:hover {
+								color: $navColHover;
+							}
+							
+							@media (min-width: $min-mob) and (max-width: $max-mob) {	
+								display: inline-block;
+								font-size: 20px;	
+								padding: 10px 20px !important;
+							}
+						}
+						
+						&.social {
+							a{
+								width: 25px;
+								height: 25px;
+								display: inline-block;
+								margin-left: 10px;
+								@include addPrefix(filter, grayscale(0));
+								
+								&:hover {
+									@include addPrefix(filter, grayscale(100%));
+								}
+								
+								&.tw{
+									background: url('../img/tw.png') no-repeat;
+								}
+								 
+								&.fb{
+									background: url('../img/fb.png') no-repeat;
+								}
+								
+								@media (min-width: $min-mob) and (max-width: $max-mob) {
+									display: none;
+							}
+								
+							}
+						}						
+					}			
+					
+				}				
+				
+			}
+		}
+		
+		.sloganCont {
+			max-width: 58%;
+			padding: 0 30px;
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+					max-width: 100%;
+					text-align: center;
+					padding-bottom: 150px;
+				}
+			
+			h1 {
+				text-transform: uppercase;
+				font-family: $Montserrat;
+				font-size: 48px;
+				font-weight: 700;
+				color: $sloganColor;	
+				
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					font-size: 2em;
+				}
+			}
+			
+			h4 {
+				font-family: $OpenSans;
+				font-size: 20px;
+				
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					font-size: 1.5em;
+					padding: 20px 0;
+				}
+			}
+			
+			.btn {
+				display: inline-block;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: white;
+				font-family: $OpenSans;
+				font-size: 15px;
+				padding: 25px 35px;
+				background: $btnBackColor;
+				margin-top: 50px;	
+				transition: all 0.2s ease;
+				
+				&:hover {
+					background: $btnHovColor;
+					color: white;
+				}
+				
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					font-size: 1.5em;
+				}
+			}
+			
+		}
+	}
+}
+
+#snippets {
+	position: relative;
+	
+	& > .wr {
+		@extend %flex, %wr;
+		justify-content: center;		
+		/*интеграция шаблонного селектора*/
+				
+		& > ul {
+			@extend %ul, %flex;
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+					flex-direction: column;
+				justify-content: center;
+				}
+			
+			li {
+				width: (100% / 3);
+				box-sizing: border-box;
+				padding: 70px 25px;				
+				text-align: left;	
+				
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					width: 96%; 
+					padding: 30px 25px;		
+					text-align: center;
+				}
+				
+				h3 {
+					text-transform: uppercase;
+					font-family: $Montserrat;
+					font-size: 24px;
+					font-weight: 700;
+					color: $sloganColor;
+				
+					.dot {
+						color: $dotColor;
+					}
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {
+						font-size: 2em;
+						text-align: center;						
+					}
+				}
+				
+				.descr {
+					color: $desrcColor;
+					font-family: $OpenSans;
+					font-size: 15px;
+					padding: 25px 35px 25px 0;
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {	padding: 20px 0;				
+						font-size: 1.5em;
+						text-align: center;
+					}			
+					
+					
+				}
+				
+				.more {
+					@media (min-width: $min-mob) and (max-width: $max-mob) {
+						text-align: center;
+						font-size: 1.5em;
+						paddimg: 0 30px;
+					}
+				}
+				
+			}
+		}		
+	}	
+}
+
+#portfolio {
+	& > .wr {
+		@extend %flex, %wr;
+		justify-content: space-between;
+		
+		@media (min-width: $min-mob) and (max-width: $max-mob) {
+			flex-direction: column;
+		}
+		
+		
+		& > .col {
+			width: 49%;	
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+				width: 100%;				
+			}
+			
+			&:first-of-type {
+				img {
+					width: 100%;
+				}
+			}
+		}
+		
+		h2 {
+			text-transform: uppercase;
+			font-family: $Montserrat;
+			font-size: 40px;
+			font-weight: 700;
+			color: $sloganColor;
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+				text-align: center;
+				width: 100%;
+				padding: 20px 0;
+				font-size: 2.5em;
+			}			
+		}		
+		
+		h4 {
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+				text-align: center;
+				width: 100%;
+				padding: 20px 0;
+				font-size: 1.5em;
+				}				
+		}
+		
+		.descr {
+			color: $desrcColor;
+			font-family: $OpenSans;
+			font-size: 16px;
+			padding: 20px 0 30px 0;
+			
+			p:first-child {
+				padding-bottom: 15px;
+			}
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+				text-align: left;
+				width: 100%;				
+				font-size: 1.5em;
+				padding: 20px 5% 20px 10%;
+				box-sizing: border-box;
+			}	
+		}
+		.more {
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+				text-align: center;				
+				padding: 20px 0;
+				font-size: 1.5em;
+				}	
+			}
+	}
+}
+
+#team {
+	& > .wr {	
+		@extend %wr;
+		& > .row1 {			
+				h2 {
+					text-transform: uppercase;
+					font-family: $Montserrat;					
+					font-size: 32px;
+					font-weight: 700;
+					color: $sloganColor;
+					margin: 0;
+					padding-left: 15px;
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {
+						text-align: center;
+						width: 100%;
+						paddingtop: 20px;
+						font-size: 2.5em;
+						
+				}		
+			}				
+				h3 {
+					color: $desrcColor;
+					font-family: $OpenSans;
+					font-size: 14px;
+					padding: 0;
+					padding-left: 15px;
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {
+						text-align: center;
+						width: 100%;
+						padding: 10px;
+						font-size: 1.5em;
+					}	
+				}
+			}
+		
+		& > .row2 {
+				@extend %flex, %ul;
+				margin-top: 30px;
+			
+				@media (min-width: $min-mob) and (max-width: $max-mob) {
+					flex-direction: column;
+					align-items: center;
+					margin: 0 auto;
+				}		
+				
+				li {
+					@extend %flex;
+					width: (100% /3);
+					padding-right: 35px;
+					box-sizing: border-box;
+					
+					@media (min-width: $min-mob) and (max-width: $max-mob) {
+						width: 100%;
+						margin: 20px auto;						
+					}		
+					
+					@media (min-width: $min-tab) and (max-width: $max-tab) {
+						width: 70%;
+						margin: 20px auto;
+						padding-left: 0%;
+					}		
+					
+					
+					.col1 {
+						width: 128px;
+						height: 128px;
+						border-radius: 50%;
+						background: no-repeat center;
+						background-size: cover;
+						
+						&.photo1 {
+							background-image: url(../img/photo1.jpg);
+						}
+						
+						
+						&.photo2 {
+							background-image: url(../img/photo2.jpg);
+						}
+						
+						&.photo3 {
+							background-image: url(../img/photo3.jpg);
+						}
+						
+					}
+					.col2 {
+						width: calc(100% - 128px);
+						box-sizing: border-box;
+						padding-left: 20px;
+						
+						h3 {
+							text-transform: uppercase;
+							font-family: $Montserrat;			
+							font-size: 22px;
+							font-weight: 700;
+							color: $sloganColor;
+							margin: 0;
+							
+							@media (min-width: $min-mob) and (max-width: $max-mob) {
+								font-size: 2em;
+							}		
+				
+						}
+						
+						h4 {
+							color: $profColor;
+							font-family: $OpenSans;
+							font-size: 14px;
+							font-weight: 700;
+							padding: 0;
+							
+							@media (min-width: $min-mob) and (max-width: $max-mob) {
+								font-size: 1.5em;
+							}	
+						}
+						
+						.descr {
+							color: $desrcColor;
+							font-family: $OpenSans;
+							font-size: 14px;
+							padding: 0;								
+					}
+					
+				}
+				
+			}
+		}
+		
+		& > .row3 {
+			text-align: right;	
+			
+			@media (min-width: $min-mob) and (max-width: $max-mob) {
+						display: none;
+					}
+		}
+	}
+}
+
+footer {
+	@extend %wr, %flex;
+	display: flex !important;
+	justify-content: space-between;	
+	margin-top: 80px;
+	padding-top: 20px;
+	min-height: 90px;
+	border-top: 2px solid $footerLine;
+	
+	@media (min-width: $min-mob) and (max-width: $max-mob) {
+						flex-direction: column;						
+					}
+	
+	.col1 {		
+		a {
+			display: inline-block;
+			width: 21px;
+			height: 21px;
+			margin-right: 20px;
+			background: url(../img/soc-foot.png) no-repeat 0 center;
+			opacity: 0.5;
+			transition: all 0.2s ease;
+			
+			&.tw {
+				background-position-x: 0; 
+			}
+			
+			&.ins {
+				background-position-x: 36%; 
+			}
+			
+			&.fb {
+				background-position-x: 72%; 
+			}
+			
+			&.gp {
+				background-position-x: 100%; 
+			}
+			
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	
+	.col2 {		
+		font-family: $OpenSans;
+		font-size: 20px;
+		color: $footerLine;
+	}
+}
